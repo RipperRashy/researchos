@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ResearchOS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>ResearchOS</h1>
+      <p class="tagline">AI-Powered Research Intelligence Platform</p>
+    </div>
+
+    <div class="upload-section">
+      <h2>Upload Research Paper</h2>
+      <p>Upload a PDF and ResearchOS will analyze it for you.</p>
+      <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" accept=".pdf" hidden />
+        <div class="upload-icon">📄</div>
+        <p>Click to select a PDF file</p>
+        <button class="btn-select" onclick="document.getElementById('fileInput').click()">Choose PDF</button>
+      </div>
+      <div id="fileName" class="file-name"></div>
+      <button class="btn-analyze" id="analyzeBtn" onclick="analyzePaper()" disabled>Analyze Paper</button>
+    </div>
+
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <p>Analyzing paper... This may take a minute on first run while the model loads.</p>
+    </div>
+
+    <div class="results" id="results" style="display:none;">
+      <h2>Analysis Results</h2>
+      <div class="filename-tag" id="filenameTag"></div>
+
+      <div class="card">
+        <div class="card-label">Summary</div>
+        <div class="card-content" id="summary"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Research Question</div>
+        <div class="card-content" id="research_question"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Methodology</div>
+        <div class="card-content" id="methodology"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Dataset / Sample</div>
+        <div class="card-content" id="dataset"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Key Findings</div>
+        <div class="card-content" id="findings"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Limitations</div>
+        <div class="card-content" id="limitations"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Conclusion</div>
+        <div class="card-content" id="conclusion"></div>
+      </div>
+
+      <button class="btn-reset" onclick="resetPage()">Analyze Another Paper</button>
+    </div>
+
+    <div class="error" id="error" style="display:none;">
+      <p id="errorMsg"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
