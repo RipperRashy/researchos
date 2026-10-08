@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pymupdf
+python-multipart
+torch
+transformers==4.44.0
+sentencepiece
+python-dotenv
